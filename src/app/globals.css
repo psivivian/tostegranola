@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f6eedb;
+  --cream-panel: #eee6d2;
+  --cream-soft: #e6decb;
+  --ink: #1a1a17;
+  --ink-strong: #2a2a24;
+  --ink-soft: #6b6b5e;
+  --accent: #971010;
+  --accent-hover: #b01818;
+  --accent-light: #c44a4a;
+  --wood: #3a2518;
+
+  --verde: #4c644b;
+  --verde-claro: #aab89e;
+
+  --header-bg: #4c644b;
+
+  --flavor-tradicional: #2d4a68;
+  --flavor-chocolate: #5c3623;
+  --flavor-frutas: #97283f;
+  --flavor-salgada: #5c6b3f;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-panel: var(--cream-panel);
+  --color-cream-soft: var(--cream-soft);
+  --color-ink: var(--ink);
+  --color-ink-strong: var(--ink-strong);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-verde: var(--verde);
+  --color-verde-claro: var(--verde-claro);
+  --color-wood: var(--wood);
+  --color-header: var(--header-bg);
+  --color-tradicional: var(--flavor-tradicional);
+  --color-chocolate-flavor: var(--flavor-chocolate);
+  --color-frutas: var(--flavor-frutas);
+  --color-salgada: var(--flavor-salgada);
+  --font-heading: var(--font-roca);
+  --font-sans: var(--font-geist-sans);
+  --font-logo: var(--font-baloo);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* ─── Marquee ─── */
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ─── Reveal animation ─── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 900ms var(--ease-out-expo),
+    transform 900ms var(--ease-out-expo);
+}
+
+.reveal.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal.reveal-left.reveal-in {
+  transform: translateX(0);
+}
+
+.reveal.reveal-scale {
+  transform: scale(0.92);
+}
+
+.reveal.reveal-scale.reveal-in {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.reveal-left, .reveal.reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Button press feedback ─── */
+
+.btn-press {
+  transition:
+    transform 160ms var(--ease-out-strong),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    opacity 200ms ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ─── Photo hover zoom ─── */
+
+@media (hover: hover) and (pointer: fine) {
+  .photo-hover {
+    transition: transform 700ms var(--ease-out-strong);
+  }
+  .photo-hover:hover {
+    transform: scale(1.04);
+  }
+}
+
+/* ─── Product card ─── */
+
+.product-card {
+  transition:
+    transform 600ms var(--ease-out-expo),
+    box-shadow 600ms var(--ease-out-expo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ─── Floating geometric decorations ─── */
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50% { opacity: 0.08; transform: scale(1.05); }
+}
+
+.float-gentle { animation: float-gentle 6s ease-in-out infinite; }
+.float-slow { animation: float-slow 8s ease-in-out infinite; }
+.pulse-ring { animation: pulse-ring 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-gentle, .float-slow, .pulse-ring { animation: none; }
+}
+
+/* ─── Modal backdrop & content ─── */
+
+.modal-backdrop {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.modal-backdrop.modal-open {
+  opacity: 1;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition:
+    opacity 400ms var(--ease-out-expo),
+    transform 400ms var(--ease-out-expo);
+}
+
+.modal-backdrop.modal-open .modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ─── Header ─── */
+
+.header-blur {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* ─── Mobile menu ─── */
+
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.mobile-menu.menu-open {
+  transform: translateX(0);
+}
+
+/* ─── Stripe divider ─── */
+
+.stripe-bar {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--verde-claro) 0px,
+    var(--verde-claro) 24px,
+    var(--cream) 24px,
+    var(--cream) 48px
+  );
+  height: 28px;
+}
+
+.stripe-bar-lg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--verde-claro) 0px,
+    var(--verde-claro) 28px,
+    var(--cream) 28px,
+    var(--cream) 56px
+  );
+  height: 38px;
+}
+
+.stripe-divider {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--verde-claro) 0px,
+    var(--verde-claro) 18px,
+    var(--cream) 18px,
+    var(--cream) 36px
+  );
+  height: 6px;
+}
+
+/* ─── Nutritional table ─── */
+
+.nutri-table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.nutri-table td,
+.nutri-table th {
+  padding: 8px 12px;
+}
+
+/* ─── Leaf decorative element ─── */
+
+.leaf-accent {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.leaf-accent span {
+  display: block;
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 0 50% 0;
+}
