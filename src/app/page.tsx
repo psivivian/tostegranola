@@ -20,9 +20,9 @@ export default function Home() {
         <div className="stripe-bar" />
         <SaboresOriginal />
         <PerfeitoCom />
-        <WaveDivider topColor="var(--cream-panel)" bottomColor="var(--verde)" variant="organic" />
+        <WaveDivider topColor="var(--cream-panel)" bottomColor="var(--terracotta)" variant="organic" />
         <NossaHistoria />
-        <WaveDivider topColor="var(--verde)" bottomColor="var(--cream)" variant="gentle" flip />
+        <WaveDivider topColor="var(--terracotta)" bottomColor="var(--cream)" variant="gentle" flip />
         <Objecoes />
         <WaveDivider topColor="var(--cream)" bottomColor="var(--header-bg)" variant="slope" />
       </main>

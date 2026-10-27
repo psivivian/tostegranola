@@ -119,7 +119,7 @@ export function SaboresC() {
               escolha seu motivo
             </h2>
             <p className="mx-auto mt-3 max-w-sm text-center text-[15px] text-ink-soft">
-              Quatro sabores, um mais viciante que o outro.
+              Cinco sabores, um mais viciante que o outro.
             </p>
           </Reveal>
 

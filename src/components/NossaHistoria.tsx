@@ -17,6 +17,7 @@ const items: ShowcaseItem[] = [
   { num: "02", name: "Frutas Vermelhas", image: "/images/close-fv.png", color: "#97283f" },
   { num: "03", name: "Chocolate Intenso", image: "/images/close-choc.png", color: "#5c3623" },
   { num: "04", name: "Ervas Finas", image: "/images/close-salg.png", color: "#5c6b3f" },
+  { num: "05", name: "Banana", image: "/images/close-ban.png", color: "#c9a84c" },
 ];
 
 function BowlAnimation() {
@@ -209,7 +210,7 @@ export function NossaHistoria() {
     <section
       ref={sectionRef}
       id="nossa-historia"
-      className="relative overflow-hidden bg-verde text-cream"
+      className="relative overflow-hidden bg-terracotta text-cream"
     >
       <div ref={bgRef} className="absolute inset-0">
         <Image

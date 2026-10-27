@@ -39,7 +39,7 @@ function CountUp({ target, suffix = "", duration = 1200 }: { target: number; suf
 const facts = [
   { target: 0, suffix: "", label: "aditivos", desc: "Zero aditivos" },
   { target: 100, suffix: "%", label: "natural", desc: "100% Natural" },
-  { target: 4, suffix: "", label: "motivos crocantes", desc: "pra amar os seus dias" },
+  { target: 5, suffix: "", label: "motivos crocantes", desc: "pra amar os seus dias" },
 ];
 
 export function Objecoes() {

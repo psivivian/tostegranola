@@ -14,6 +14,7 @@
 
   --verde: #4c644b;
   --verde-claro: #aab89e;
+  --terracotta: #a04e36;
 
   --header-bg: #4c644b;
 
@@ -39,6 +40,7 @@
   --color-accent-light: var(--accent-light);
   --color-verde: var(--verde);
   --color-verde-claro: var(--verde-claro);
+  --color-terracotta: var(--terracotta);
   --color-wood: var(--wood);
   --color-header: var(--header-bg);
   --color-tradicional: var(--flavor-tradicional);

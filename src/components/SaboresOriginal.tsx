@@ -21,11 +21,11 @@ export function SaboresOriginal() {
               escolha seu motivo
             </h2>
             <p className="mx-auto mt-3 max-w-sm text-center text-[15px] text-ink-soft">
-              Quatro sabores, um mais viciante que o outro.
+              Cinco sabores, um mais viciante que o outro.
             </p>
           </Reveal>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-5">
             {flavors.map((f, i) => (
               <Reveal key={f.slug} delay={80 + i * 60}>
                 <button
